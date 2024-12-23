@@ -18,5 +18,11 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('dashboard', 'Admin\UserController::dashboard');
     $routes->get('/', 'Admin\UserController::dashboard');
     $routes->get('manage-cv', 'Admin\UserController::manageCv');
+    $routes->post('manage-cv/upload', 'Admin\UserController::uploadCv');
+    $routes->group('cms', function($routes) {
+        $routes->get('about', 'Admin\CmsController::about'); // Added route for about section
+        $routes->post('about', 'Admin\CmsController::aboutSet'); // Added route for about section
+    });
 });
 
+$routes->get('admin/google-auth', 'Admin\UserController::loginWithGoogle');

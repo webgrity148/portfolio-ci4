@@ -56,6 +56,9 @@
 		          <div class="col-md-12 heading-section ftco-animate">
 		          	<h1 class="big">About</h1>
 		            <h2 class="mb-4">About Me</h2>
+					<!-- <div>
+						<?= getMetaData('about') ?>
+					</div> -->
 		            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
 		            <ul class="about-info mt-4 px-md-0 px-2">
 		            	<li class="d-flex"><span>Name:</span> <span>Clark Thompson</span></li>
@@ -73,7 +76,10 @@
 	                <span class="number" data-number="120">0</span>
 	                <span>Project complete</span>
                 </p>
-                <p><a href="#" class="btn btn-primary py-3 px-3">Download CV</a></p>
+                <?php $cv = getMetaData('cv'); ?>
+                <?php if ($cv): ?>
+                    <p><a href="<?= base_url('uploads/documents/' . $cv) ?>" class="btn btn-primary py-3 px-3" download>Download CV</a></p>
+                <?php endif; ?>
               </div>
 	          </div>
 	        </div>
@@ -135,7 +141,10 @@
     		</div>
     		<div class="row justify-content-center mt-5">
     			<div class="col-md-6 text-center ftco-animate">
-    				<p><a href="#" class="btn btn-primary py-4 px-5">Download CV</a></p>
+				<?php $cv = getMetaData('cv'); ?>
+				<?php if ($cv): ?>
+                    <p><a href="<?= base_url('uploads/documents/' . $cv) ?>" class="btn btn-primary py-4 px-5" download>Download CV</a></p>
+                <?php endif; ?>
     			</div>
     		</div>
     	</div>

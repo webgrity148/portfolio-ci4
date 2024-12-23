@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="<?=base_url('assets/admin/')?>css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 </head>
 
@@ -67,12 +68,13 @@
                                             Login
                                         </button>
                                         <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
+                                        <a href="<?=$google_login_url?>" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
                                         </a>
                                         <a href="index.html" class="btn btn-facebook btn-user btn-block">
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a>
+
                                     </form>
                                     <hr>
                                     <div class="text-center">
@@ -102,7 +104,11 @@
 
     <!-- Custom scripts for all pages-->
     <script src="<?=base_url('assets/admin/')?>js/sb-admin-2.min.js"></script>
-
+<script>
+    function handleCredentialResponse(response) {   
+        console.log(response);
+    }
+</script>
 </body>
 
 </html>
