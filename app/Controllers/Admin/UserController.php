@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\GalleryModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\UserModel;
 use App\Models\MetaData;
@@ -152,5 +153,12 @@ class UserController extends BaseController
         $metaDataModel = new MetaData();
         $metaDataModel->setData($key, $name);
         return redirect('admin/manage-cv')->with('success', 'Successfully updated!');
+    }
+
+    public function gallery()
+    {
+        $photos = new GalleryModel();
+        $data['photos'] = $photos->getPhotos();
+        return view('admin/gallery', $data);
     }
 }

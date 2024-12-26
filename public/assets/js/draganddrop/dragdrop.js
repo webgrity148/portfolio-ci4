@@ -38,7 +38,7 @@
         if (!this.options.allowMultiple) {
             placeholder.textContent = "Drag and drop a file here or click to browse.";
         } else {
-        placeholder.textContent = "Drag and drop files here or click to browse.";
+            placeholder.textContent = "Drag and drop files here or click to browse.";
         }
 
         placeholder.style.margin = "10px 0";
@@ -64,7 +64,7 @@
         wrapper.addEventListener("drop", (e) => {
             e.preventDefault();
             wrapper.style.borderColor = "#ccc";
-           
+
             const files = e.dataTransfer.files;
             if (!this.options.allowMultiple && files.length > 1) {
                 console.error("Multiple files are not allowed.");

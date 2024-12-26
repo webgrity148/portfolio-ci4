@@ -6,16 +6,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <link href="<?=base_url('assets/admin/')?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <script src="<?= base_url('assets/js/jquery.min.js') ?>"></script>
+    <script src="<?= base_url('assets/js/draganddrop/dragdrop.js') ?>"></script>
+    <link href="<?= base_url('assets/admin/') ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="<?=base_url('assets/admin/')?>css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="<?=base_url('assets/')?>css/jquery-confirm.css" rel="stylesheet">
-    <script src="<?=base_url('assets/tinymce/tinymce.min.js')?>"></script>
+    <link href="<?= base_url('assets/admin/') ?>css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="<?= base_url('assets/') ?>css/jquery-confirm.css" rel="stylesheet">
+    <script src="<?= base_url('assets/tinymce/tinymce.min.js') ?>"></script>
 
 
 </head>
@@ -41,7 +42,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('admin/dashboard')?>">
+                <a class="nav-link" href="<?= base_url('admin/dashboard') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -49,7 +50,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
             <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('admin/manage-cv')?>">
+                <a class="nav-link" href="<?= base_url('admin/manage-cv') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Manage CV</span></a>
             </li>
@@ -72,30 +73,19 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Cms:</h6>
-                        <a class="collapse-item" href="<?=base_url('admin/cms/about')?>">About</a>
+                        <a class="collapse-item" href="<?= base_url('admin/cms/about') ?>">About</a>
                         <a class="collapse-item" href="cards.html">Cards</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <!-- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+            <li class="nav-item">
+                <a class="nav-link" href="<?=base_url('admin/gallery')?>">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                    <span>Gallery</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
-            </li> -->
+            </li>
 
             <!-- Divider -->
             <!-- <hr class="sidebar-divider"> -->
@@ -329,9 +319,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=session()->get('user')['username']??""?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= session()->get('user')['username'] ?? "" ?></span>
                                 <img class="img-profile rounded-circle"
-                                    src="<?=session()->get('user')['profile_img']?>">
+                                    src="<?= session()->get('user')['profile_img'] ?>">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -362,7 +352,4 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-               
-
+                <div class="container-fluid"></div>
