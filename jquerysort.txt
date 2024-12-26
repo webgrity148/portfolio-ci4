@@ -1,0 +1,20 @@
+   $("#majors_and_links_list").sortable({
+            stop: function(event, ui) {
+                var sortedIDs = $("#majors_and_links_list .row ").map(function() {
+                    return $(this).attr("data-id");
+                }).get();
+                var orderIndex = {
+                    order: sortedIDs,
+                    _token: "{{ csrf_token() }}"
+                };
+                $.ajax({
+                    type: "post",
+                    url: "{{ route('order.popular_majors') }}",
+                    data: orderIndex,
+                    dataType: "json",
+                    success: function(response) {
+
+                    }
+                });
+            }
+        });

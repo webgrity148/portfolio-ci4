@@ -1,0 +1,14 @@
+<script>
+    tinymce.init({
+        selector: '.texteditor',
+        plugins: 'preview image media  code   searchreplace autolink  visualblocks visualchars fullscreen  link   codesample table charmap  anchor insertdatetime advlist lists emoticons',
+        toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist |image media code| forecolor backcolor  permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile  pageembed  link anchor codesample | a11ycheck ltr rtl | showcomments addcomment',
+        height: 200,
+        images_upload_url: "{{ route('uploadEditorImage', ['_token' => csrf_token()]) }}",
+        media_live_embeds: true,
+        images_upload_credentials: true,
+        relative_urls: false,
+        remove_script_host: false,
+    });
+</script>
+
