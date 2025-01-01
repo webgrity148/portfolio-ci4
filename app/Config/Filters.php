@@ -2,6 +2,7 @@
 
 namespace Config;
 
+use App\Filters\ApiAuth;
 use CodeIgniter\Config\Filters as BaseFilters;
 use CodeIgniter\Filters\Cors;
 use CodeIgniter\Filters\CSRF;
@@ -36,6 +37,7 @@ class Filters extends BaseFilters
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
         'auth'          => Auth::class, // Added auth filter alias
+        'apiauth'          => ApiAuth::class, // Added auth filter alias
     ];
 
     /**
@@ -105,5 +107,7 @@ class Filters extends BaseFilters
      *
      * @var array<string, array<string, list<string>>>
      */
-    public array $filters = [];
+    public array $filters = [
+        'cors' => ['after' => ['api/*']], // Added cors filter to the api/* URI pattern
+    ];
 }

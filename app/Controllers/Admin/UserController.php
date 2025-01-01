@@ -161,4 +161,43 @@ class UserController extends BaseController
         $data['photos'] = $photos->getPhotos();
         return view('admin/gallery', $data);
     }
+    public function forgotPassword()
+    {
+        return view('admin/forgot-password');
+    }
+    public function resetPassword()
+    {
+        $email = $this->request->getPost('email');
+        // Check if the email exists
+        $userModel = new UserModel();
+        $user = $userModel->where('email', $email)->first();
+        if ($user) {
+            // Generate a reset token
+            $resetToken = bin2hex(random_bytes(16));
+            // Save the reset token in the database with an expiration time
+            $userModel->update($user['id'], [
+                'reset_token' => $resetToken,
+                'reset_token_expiry' => date('Y-m-d H:i:s', strtotime('+1 hour'))
+            ]);
+            $data = [
+                'name' => 'John Doe',
+            ];
+            $emailBody = $this->load->view('emails/sample_layout', $data, true);
+            $this->email->from('your_email@example.com', 'Your Website Name');
+            $this->email->to('recipient@example.com');
+            $this->email->subject('Welcome to Our Platform');
+            $this->email->message($emailBody);
+
+            if ($this->email->send()) {
+                echo "Email sent successfully!";
+            } else {
+                echo "Failed to send email.";
+                echo $this->email->print_debugger();
+            }
+            // You can send an email with a link to reset the password
+            return redirect()->to('admin/login')->with('success', 'Password reset link sent to your email.');
+        } else {
+            return redirect()->back()->with('error', 'No account associated with this email.');
+        }
+    }
 }

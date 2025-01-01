@@ -12,7 +12,7 @@ class UserModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['username','profile_img', 'email', 'password', 'remember_token', 'reset_token', 'reset_token_expiry'];
+    protected $allowedFields    = ['username','profile_img', 'email', 'password', 'remember_token', 'reset_token', 'reset_token_expiry','login_token'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -57,6 +57,11 @@ class UserModel extends Model
     {
         return $this->where('email', $emailOrUsername)
                     ->orWhere('username', $emailOrUsername)
+                    ->first();
+    }
+    public function getUserByToken($token)
+    {
+        return $this->where('login_token', $token)
                     ->first();
     }
 

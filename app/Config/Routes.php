@@ -26,4 +26,11 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     });
 });
 
+$routes->get('admin/forgot-password', 'Admin\UserController::forgotPassword');
+$routes->post('admin/reset-password', 'Admin\UserController::resetPassword');
 $routes->get('admin/google-auth', 'Admin\UserController::loginWithGoogle');
+
+
+$routes->post('register', 'UserController::register');
+    $routes->post('login', 'UserController::login');
+    $routes->get('user/profile', 'UserController::profile', ['filter' => 'apiauth']);
